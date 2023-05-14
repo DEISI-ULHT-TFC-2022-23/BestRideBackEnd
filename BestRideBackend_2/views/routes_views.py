@@ -10,13 +10,8 @@ from rest_framework.response import Response
 from BestRideBackend_2.serializers import *
 from django.contrib.gis.geos import Point
 from environs import Env
-from azure.storage.blob import BlobServiceClient
+#from azure.storage.blob import BlobServiceClient
 import math
-
-env = Env()
-env.read_env()
-# Configurar a conexão com o Azure Blob Storage
-blob_service_client = BlobServiceClient.from_connection_string('<YOUR_CONNECTION_STRING>')
 
 class Routes(APIView):
 
@@ -42,14 +37,14 @@ class Routes(APIView):
 
         try:
             # Crie uma instância do cliente BlobServiceClient
-            blob_service_client = BlobServiceClient.from_connection_string('<CONNECTION_STRING>')
-            container_name = 'bestridecontainer'  # Nome do container no Azure Blob Storage
+            #blob_service_client = BlobServiceClient.from_connection_string('<CONNECTION_STRING>')
+            #container_name = 'bestridecontainer'  # Nome do container no Azure Blob Storage
 
             for e in Road:
-                blob_client = blob_service_client.get_blob_client(container_name, e.image)
+                """blob_client = blob_service_client.get_blob_client(container_name, e.image)
                 sas_token = blob_client.generate_shared_access_signature(permission='r', expiry=datetime.utcnow() + timedelta(hours=1))
                 url = blob_client.url + '?' + sas_token
-                e.image = url
+                e.image = url"""
 
         except Exception as e:
             logging.error(e)
@@ -80,7 +75,7 @@ class Routes(APIView):
 
         try:
             # Crie uma instância do cliente BlobServiceClient
-            blob_service_client = BlobServiceClient.from_connection_string('<CONNECTION_STRING>')
+            """blob_service_client = BlobServiceClient.from_connection_string('<CONNECTION_STRING>')
             container_name = 'bestridecontainer'  # Nome do container no Azure Blob Storage
 
             for e in roadMap:
@@ -88,7 +83,7 @@ class Routes(APIView):
                 sas_token = blob_client.generate_shared_access_signature(permission='r',
                                                                          expiry=datetime.utcnow() + timedelta(hours=1))
                 url = blob_client.url + '?' + sas_token
-                e.image = url
+                e.image = url"""
 
         except Exception as e:
             logging.error(e)
@@ -116,7 +111,7 @@ class Routes(APIView):
 
         try:
             # Crie uma instância do cliente BlobServiceClient
-            blob_service_client = BlobServiceClient.from_connection_string('<CONNECTION_STRING>')
+            """blob_service_client = BlobServiceClient.from_connection_string('<CONNECTION_STRING>')
             container_name = 'bestridecontainer'  # Nome do container no Azure Blob Storage
 
             for point in Points:
@@ -124,7 +119,7 @@ class Routes(APIView):
                 sas_token = blob_client.generate_shared_access_signature(permission='r',
                                                                          expiry=datetime.utcnow() + timedelta(hours=1))
                 url = blob_client.url + '?' + sas_token
-                point.image = url
+                point.image = url"""
 
         except Exception as e:
             logging.error(e)

@@ -7,25 +7,13 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from BestRideBackend_2.serializers import *
 from environs import Env
-from azure.identity import ClientSecretCredential
-from azure.graphrbac import GraphRbacManagementClient
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.resource import ResourceManagementClient
 
 env = Env()
 env.read_env()
 
-# Configurar as credenciais do Azure AD
-tenant_id = '<YOUR_TENANT_ID>'
-client_id = '<YOUR_CLIENT_ID>'
-client_secret = '<YOUR_CLIENT_SECRET>'
-
-credential = ClientSecretCredential(
-    tenant_id=tenant_id,
-    client_id=client_id,
-    client_secret=client_secret
-)
-
-# Criar uma instância do cliente GraphRbacManagementClient
-graph_client = GraphRbacManagementClient(credential, tenant_id)
+credential = DefaultAzureCredential()
 
 # aqui
 
@@ -33,7 +21,7 @@ class user_operations(APIView):
     @api_view(['POST'])
     def recoverAccount(self):
         # aqui
-        client = graph_client
+        client = ResourceManagementClient(credential, "2452d9b2-12c7-4f34-abc6-18a4c912e4c4")
 
         try:
             response = client.forgot_password(
@@ -46,7 +34,7 @@ class user_operations(APIView):
     @api_view(['POST'])
     def confirmRecoverAccount(self):
         # aqui
-        client = graph_client
+        client = None
 
         try:
             response = client.confirm_forgot_password(
@@ -62,7 +50,7 @@ class user_operations(APIView):
     @api_view(['POST'])
     def resend_code(self):
         # aqui
-        client = graph_client
+        client = None
 
         try:
             response = client.resend_confirmation_code(
@@ -85,7 +73,7 @@ class user_operations(APIView):
     @api_view(['POST'])
     def confirmAccount(self):
         # aqui
-        cidp = graph_client
+        cidp = None
 
         try:
             response_confirmUser = cidp.confirm_sign_up(
@@ -125,7 +113,7 @@ class user_operations(APIView):
     @api_view(['PUT'])
     def updateUser(self, token):
         # aqui
-        client = graph_client
+        client = None
 
         try:
             response = client.update_user_attributes(
@@ -158,7 +146,7 @@ class user_operations(APIView):
     @api_view(['PUT'])
     def changePassword(self, token):
         # aqui
-        client = graph_client
+        client = None
 
         try:
             response = client.change_password(
@@ -194,7 +182,7 @@ class user_operations(APIView):
     @api_view(['POST'])
     def cancelAccount(self):
         # aqui
-        client = graph_client
+        client = None
         try:
             client.delete_user(
                 AccessToken = self.data['token']
@@ -205,7 +193,7 @@ class user_operations(APIView):
 
     def post(self, request):
         # aqui
-        client = graph_client
+        client = None
         try:
             response = client.sign_up(
                 ClientId=env.str('CLIENT_ID'),
@@ -254,7 +242,7 @@ class user_operations(APIView):
     @api_view(['POST'])
     def login(self):
         # aqui
-        cidp = graph_client
+        cidp = None
         try:
             login_request = cidp.initiate_auth(
                 ClientId=env.str('CLIENT_ID'),
@@ -272,7 +260,7 @@ class user_operations(APIView):
 
     def loginGoogle(self):
         # aqui
-        cidp = graph_client
+        cidp = None
         response = cidp.get_id(
             AccountId='YOUR AWS ACCOUNT ID',
             IdentityPoolId='us-east-1:xxxdexxx-xxdx-xxxx-ac13-xxxxf645dxxx',

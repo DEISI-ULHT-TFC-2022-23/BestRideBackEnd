@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = '9&*hva(+v92_13dfk+8b545ql%!dpyc&z#mlpevn_9f$%4#$$9'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -39,12 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'azure',
-    'django_azure_blob_storage',
 
     'django_filters',
     'rest_framework',
     'rest_framework_gis',
-    'corsheaders',
 
     'BestRideApp',
 ]
@@ -79,17 +75,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'BestRideBackend_2.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        'ENGINE': 'sql_server.pyodbc',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bestride-db',
-        'USER': env.str('USER'),
-        'PASSWORD': env.str('PASSWORD'),
+        'USER': 'Erick Pina',
+        'PASSWORD': '<Senha>',
         'HOST': 'bestride-db.mysql.database.azure.com',
         'PORT': '3306',
     }
@@ -113,7 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -127,7 +120,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
@@ -135,3 +127,4 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
