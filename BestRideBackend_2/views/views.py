@@ -1,4 +1,4 @@
-import requests
+import requests, uuid, json
 from rest_framework.reverse import reverse
 from rest_framework.response import Response
 from environs import Env
@@ -42,10 +42,17 @@ class Translator():
         subscription_key = 'd282af8ef2784b829c28173a468cc593'
         endpoint = 'https://api.cognitive.microsofttranslator.com/'
 
+        location = 'westeurope'
+
+        constructed_url = endpoint + '/translate'
+
         headers = {
             'Ocp-Apim-Subscription-Key': subscription_key,
-            'Content-Type': 'application/json'
+            'Ocp-Apim-Subscription-Region': location,
+            'Content-Type': 'application/json',
+            'X-ClientTraceId': str(uuid.uuid4())
         }
+
 
         text = request.data['text']
         source_lang = request.data['sourceLang']
@@ -61,13 +68,14 @@ class Translator():
             'text': text
         }]
 
-        response = requests.post(endpoint, headers=headers, params=params, json=data)
+        request = requests.post(constructed_url, params=params, headers=headers, json=data)
+        response = request.json()
 
-        translated_text = response.json()[0]['translations'][0]['text']
+        response_data = {
+            'translated_text': response[0]['translations'][0]['text']
+        }
 
-        return JsonResponse({
-            "translated_text": translated_text
-        })
+        return Response(response_data)
 
 @api_view(['GET'])
 def api_root(request, format=None):

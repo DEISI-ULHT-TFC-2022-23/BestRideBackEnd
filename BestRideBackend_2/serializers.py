@@ -1,9 +1,6 @@
-from django.core.serializers import serialize
 from rest_framework import serializers
-from sqlparse.tokens import Assignment
 
 from .models import *
-from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):

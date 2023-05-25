@@ -9,8 +9,11 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+from environs import Env
 import os
+
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -35,14 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'azure',
 
     'django_filters',
     'rest_framework',
     'rest_framework_gis',
 
-    'BestRideApp',
+    'BestRideBackend_2',
+
 ]
 
 MIDDLEWARE = [
@@ -78,14 +81,29 @@ WSGI_APPLICATION = 'BestRideBackend_2.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bestride-db',
-        'USER': 'Erick Pina',
-        'PASSWORD': '<Senha>',
+        'USER': 'bestride',
+        'PASSWORD': 'Bestride$1234',
         'HOST': 'bestride-db.mysql.database.azure.com',
         'PORT': '3306',
+    }
+}"""
+
+DATABASES = {
+    'default': {
+        #'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.contrib.gis.db.backends.mysql',
+        'NAME': env.str('NAME'),
+        'USER': env.str('USER'),
+        'PASSWORD': env.str('PASSWORD'),
+        'HOST': env.str('HOST'),
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
@@ -127,4 +145,8 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+GDAL_LIBRARY_PATH = 'C:\\Program Files\\QGIS 3.30.2\\bin\\gdal306.dll'
+GEOS_LIBRARY_PATH = 'C:\\Program Files\\QGIS 3.30.2\\bin\\geos_c.dll'
+
+
 
