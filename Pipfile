@@ -1,0 +1,34 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+environs = "==8.0.0"
+django = "4.1"
+djangorestframework = "*"
+django-cors-headers = "*"
+mysqlclient = "*"
+msal = "*"
+requests = "*"
+djangorestframework-jwt= "*"
+azure-mgmt-compute = "*"
+azure-mgmt-storage = "*"
+azure-mgmt-resource = "*"
+azure-keyvault-secrets = "*"
+azure-storage-blob = "*"
+azure-identity = "*"
+stripe = "*"
+microsoftgraph-python = "*"
+djangorestframework-gis = "*"
+urllib3 = "*"
+psycopg2 = "*"
+google-auth = "*"
+google-auth-oauthlib = "*"
+python-dotenv = "*"
+geos = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

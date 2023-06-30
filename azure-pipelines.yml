@@ -1,0 +1,41 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.11'
+      architecture: 'x64'
+
+  - task: PythonScript@0
+    displayName: 'Export project path'
+    inputs:
+      scriptSource: 'inline'
+      script: |
+        """Search all subdirectories for `manage.py`."""
+        from glob import iglob
+        from os import path
+        # Python >= 3.9
+        manage_py = next(iglob(path.join('**', 'manage.py'), recursive=True), None)
+        if not manage_py:
+            raise SystemExit('Could not find a Django project')
+        project_location = path.dirname(path.abspath(manage_py))
+        print('Found Django project in', project_location)
+        print('##vso[task.setvariable variable=projectRoot]{}'.format(project_location))
+
+  - task: Docker@2
+    displayName: Build and push an image to container registry
+    inputs:
+      command: buildAndPush
+      repository: 'bestride-backend'
+      dockerfile: '**/Dockerfile'
+      containerRegistry: '3084a2ed-fd54-4d9e-b647-fbdabf7b1b3a'
+      tags: 'latest'

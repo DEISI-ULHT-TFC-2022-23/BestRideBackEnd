@@ -1,0 +1,1565 @@
+{
+	"info": {
+		"_postman_id": "7ab73636-0c68-4b3d-9f84-17e7ad61bbbd",
+		"name": "BestRide",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24680749"
+	},
+	"item": [
+		{
+			"name": "User-Views",
+			"item": [
+				{
+					"name": "User - Register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"cintyadbarbosa@gmail.com\",\r\n    \"name\": \"Example User\",\r\n    \"dob\": \"1990-01-01\",\r\n    \"gender\": \"male\",\r\n    \"image\": \"\",\r\n    \"phone_number\": \"+123456789\",\r\n    \"address\": \"123 Example Street\",\r\n    \"postal_code\": \"12345\",\r\n    \"password\": \"1234567\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User- Login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"diogoa.cerqueira@gmail.com\",\r\n    \"password\": \"123456\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User - Verify Account (E-mail)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"diogoa.cerqueira@gmail.com\",\r\n    \"code\": \"6589662\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/verifyAccount/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"verifyAccount",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User- Send Recover Account Code",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"diogoa.cerqueira@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/recoverUser/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"recoverUser",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User- Confirm Recover Account",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"775793\",\r\n    \"password\": \"123456\",\r\n    \"confirm_password\": \"123456\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/confirmRecoverUser/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"confirmRecoverUser",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User - Cancel Account",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/cancelAccount/:token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"cancelAccount",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozNywiZW1haWwiOiJkaW9nb2EuY2VycXVlaXJhQGdtYWlsLmNvbSIsImV4cCI6MTY4ODE3MjU4NH0.oXKdvARut7iA2mp4694CMOvIJQyXhVem89uNvyELV-0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User - Get User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/getUser/:token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"getUser",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMSwiZW1haWwiOiJlcmlja21waW5hQGdtYWlsLmNvbSIsImV4cCI6MTY4ODE2OTg1Mn0.S2iz8bNt0nlJKIqKfe09DUlwVbjbtxVHczSrxZ2kc3o"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User - Change Password",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pass\": \"1234567\",\r\n    \"new_pass\": \"naoseimais\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/changePassword/:token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"changePassword",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMSwiZW1haWwiOiJlcmlja21waW5hQGdtYWlsLmNvbSIsImV4cCI6MTY4ODE2OTg1Mn0.S2iz8bNt0nlJKIqKfe09DUlwVbjbtxVHczSrxZ2kc3o"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User - Update User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Novo Nome\",\r\n    \"email\": \"novoemail@example.com\",\r\n    \"address\": \"Nova Rua, 123\",\r\n    \"image\": \"https://example.com/novaimagem.jpg\",\r\n    \"dob\": \"1990-01-01\",\r\n    \"phone_number\": \"1234567890\",\r\n    \"gender\": \"Masculino\",\r\n    \"postal_code\": \"123456\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/updateUser/:token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"updateUser",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMSwiZW1haWwiOiJlcmlja21waW5hQGdtYWlsLmNvbSIsImV4cCI6MTY4ODE2OTg1Mn0.S2iz8bNt0nlJKIqKfe09DUlwVbjbtxVHczSrxZ2kc3o"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User - Update Image Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/erick/Pictures/Screenshots/fotoPostman.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/updateImage/erickmpina@gmail.com",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"updateImage",
+								"erickmpina@gmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Driver-Views",
+			"item": [
+				{
+					"name": "Driver - Register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"example@example.com\",\r\n  \"name\": \"John Doe\",\r\n  \"address\": \"123 Main St\",\r\n  \"dob\": \"1990-01-01\",\r\n  \"phone\": \"1234567890\",\r\n  \"gender\": \"male\",\r\n  \"emergency_contact\": {\r\n    \"name\": \"Jane Doe\",\r\n    \"phone\": \"0987654321\",\r\n    \"relation\": \"spouse\"\r\n  },\r\n  \"postalCode\": \"12345\",\r\n  \"country\": \"United States\",\r\n  \"nif\": \"123456789\",\r\n  \"RNATLicense\": \"ABC123\",\r\n  \"driverLicense\": \"XYZ987\",\r\n  \"nationality\": \"American\",\r\n  \"courseTaken\": \"Defensive Driving\",\r\n  \"citizenCard\": \"4567890123\",\r\n  \"ANCATNumber\": \"987654321\",\r\n  \"IBAN\": \"ABCD1234\",\r\n  \"driverType\": \"regular\",\r\n  \"about\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n  \"video\": \"https://example.com/video\",\r\n  \"password\": \"secretpassword\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/createDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"createDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver - Resend code",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"erickmpina@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/resend_codeDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"resend_codeDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver - Login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"example@example.com\",\r\n    \"password\": \"secretpassword\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/loginDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"loginDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver - Verify Account (E-mail)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"\",\r\n    \"code\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/verifyAccountDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"verifyAccountDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver - Send Recover Account Code",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/recoverDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"recoverDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver - Confirm Recover Account",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"\",\r\n    \"password\": \"\",\r\n    \"confirm_password\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/confirmRecoverDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"confirmRecoverDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver - Cancel Account",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/cancelAccountDriver/:token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"cancelAccountDriver",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkcml2ZXJfaWQiOjEsImVtYWlsIjoicmFmYWVsLnBhdWxvMjAwMEBnbWFpbC5jb20iLCJleHAiOjE2ODgyMjQyNjN9.vLjdC9nJTGFRMPaiqVIOa2q_YwUsqcMApeuqVGI7fQU"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver - Get User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/getCognitoDriver/:token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"getCognitoDriver",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkcml2ZXJfaWQiOjEsImVtYWlsIjoicmFmYWVsLnBhdWxvMjAwMEBnbWFpbC5jb20iLCJleHAiOjE2ODgyMjUyNzZ9.Fd0EUqiRqsp7GqvlUolj1lq0zah62uotfH_J2xRz3NE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver  - Change Password",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pass\": \"\",\r\n    \"new_pass\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/changePasswordDriver/:token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"changePasswordDriver",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkcml2ZXJfaWQiOjEsImVtYWlsIjoicmFmYWVsLnBhdWxvMjAwMEBnbWFpbC5jb20iLCJleHAiOjE2ODgyMjQyNjN9.vLjdC9nJTGFRMPaiqVIOa2q_YwUsqcMApeuqVGI7fQU"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver - UpdateDriver",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"example@example.com\",\r\n  \"name\": \"John Doe\",\r\n  \"address\": \"123 Main St\",\r\n  \"dob\": \"1990-01-01\",\r\n  \"phone\": \"1234567890\",\r\n  \"gender\": \"male\",\r\n  \"emergency_contact\": {\r\n    \"name\": \"Jane Doe\",\r\n    \"phone\": \"0987654321\",\r\n    \"relation\": \"spouse\"\r\n  },\r\n  \"postalCode\": \"12345\",\r\n  \"country\": \"United States\",\r\n  \"nif\": \"123456789\",\r\n  \"RNATLicense\": \"ABC123\",\r\n  \"driverLicense\": \"XYZ987\",\r\n  \"nationality\": \"American\",\r\n  \"courseTaken\": \"Defensive Driving\",\r\n  \"citizenCard\": \"4567890123\",\r\n  \"ANCATNumber\": \"987654321\",\r\n  \"IBAN\": \"ABCD1234\",\r\n  \"driverType\": \"regular\",\r\n  \"about\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n  \"video\": \"https://example.com/video\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/updateDriver/eyJraWQiOiJOaDZvVG4wNE1Da3BMSmw1SCtUTk1ON2Q2OGl0RG1mb3hZQ2tMZWtRTEFjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI3ZGRlOTVmYi04NzYyLTQ4MmMtODY1Ny1lYTkyZjA1ZDY5NzEiLCJkZXZpY2Vfa2V5IjoidXMtZWFzdC0yX2EwODIwNTg5LTJiYzUtNDIyNS05MjZhLTJjNWQ0ZWVjNzg0NSIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0yX0hCcVRmYkVNRSIsImNsaWVudF9pZCI6IjFhMHJodmNkaWViYmJwcWJnNWRvbWgyNHI1Iiwib3JpZ2luX2p0aSI6ImNjZDUyMTQxLTA5MmEtNDliOC04YmU3LWMzYzNkZTkwMTU2YiIsImV2ZW50X2lkIjoiNTczY2ViZTgtMTZiNi00YzY0LWE3OTctODQwZTg5MDQ4OGU2IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3MTQ3ODMyMywiZXhwIjoxNjcxNDgxOTIzLCJpYXQiOjE2NzE0NzgzMjMsImp0aSI6IjllY2ZhMjgyLTNjZGUtNDM3YS05ZWQ4LTdjZTkzMTBhMWVjZSIsInVzZXJuYW1lIjoiN2RkZTk1ZmItODc2Mi00ODJjLTg2NTctZWE5MmYwNWQ2OTcxIn0.y9nLcq_8kTi6H6j_b1_qa2x50sjcC-RR1hASvLc6W0iKPJsxFWwthU6S_Qfg2xEf8UWI_0ddBjkig2IeJAsYwiRzfdgmqNgCTtQUItdmRcPCBeMuvVzXYj-cQmxIQw1OJS7bNSixIwRha7WovTcnGc_0IbqwYONKLhfGwfMssH6fwChYPjKQ3j2uH_V",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"updateDriver",
+								"eyJraWQiOiJOaDZvVG4wNE1Da3BMSmw1SCtUTk1ON2Q2OGl0RG1mb3hZQ2tMZWtRTEFjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI3ZGRlOTVmYi04NzYyLTQ4MmMtODY1Ny1lYTkyZjA1ZDY5NzEiLCJkZXZpY2Vfa2V5IjoidXMtZWFzdC0yX2EwODIwNTg5LTJiYzUtNDIyNS05MjZhLTJjNWQ0ZWVjNzg0NSIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0yX0hCcVRmYkVNRSIsImNsaWVudF9pZCI6IjFhMHJodmNkaWViYmJwcWJnNWRvbWgyNHI1Iiwib3JpZ2luX2p0aSI6ImNjZDUyMTQxLTA5MmEtNDliOC04YmU3LWMzYzNkZTkwMTU2YiIsImV2ZW50X2lkIjoiNTczY2ViZTgtMTZiNi00YzY0LWE3OTctODQwZTg5MDQ4OGU2IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3MTQ3ODMyMywiZXhwIjoxNjcxNDgxOTIzLCJpYXQiOjE2NzE0NzgzMjMsImp0aSI6IjllY2ZhMjgyLTNjZGUtNDM3YS05ZWQ4LTdjZTkzMTBhMWVjZSIsInVzZXJuYW1lIjoiN2RkZTk1ZmItODc2Mi00ODJjLTg2NTctZWE5MmYwNWQ2OTcxIn0.y9nLcq_8kTi6H6j_b1_qa2x50sjcC-RR1hASvLc6W0iKPJsxFWwthU6S_Qfg2xEf8UWI_0ddBjkig2IeJAsYwiRzfdgmqNgCTtQUItdmRcPCBeMuvVzXYj-cQmxIQw1OJS7bNSixIwRha7WovTcnGc_0IbqwYONKLhfGwfMssH6fwChYPjKQ3j2uH_V"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company-Views",
+			"item": [
+				{
+					"name": "Company - Register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"example@example.com\",\r\n    \"name\": \"Example Company\",\r\n    \"address\": \"123 Example Street\",\r\n    \"country\": \"Exampleland\",\r\n    \"postal_code\": \"12345\",\r\n    \"nif\": \"123456789\",\r\n    \"rnat_license\": \"RNAT12345\",\r\n    \"phone_number\": \"+1234567890\",\r\n    \"password\": \"ExamplePassword123\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/createDriverEnterprise/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"createDriverEnterprise",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - Resend code Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rafael.paulo2000@gmail.com\",\r\n    \"name\": \"User Name\",\r\n    \"address\": \"123 Main St\",\r\n    \"emergency_contact\": {\r\n        \"name\": \"Emergency Contact Name\",\r\n        \"phone\": \"912 345 679\",\r\n        \"relation\": \"Friend\"\r\n    },\r\n    \"image\": \"\",\r\n    \"dob\": \"1990-01-01\",\r\n    \"phone\": \"912345678\",\r\n    \"gender\": \"male\",\r\n    \"postalCode\": \"1234-567\",\r\n    \"country\": \"Portugal\",\r\n    \"nif\": 123456789,\r\n    \"RNATLicense\": \"123456\",\r\n    \"driverLicense\": \"123456\",\r\n    \"nationality\": \"Portuguese\",\r\n    \"citizenCard\": \"12345678\",\r\n    \"ANCATNumber\": \"12345\",\r\n    \"IBAN\": \"PT50 1234 4321 12345678901 72\",\r\n    \"password\": \"1234567\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/createDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"createDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - Login Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rafael.paulo2000@gmail.com\",\r\n    \"password\": \"naoseimais\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/loginDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"loginDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - Verify Account (E-mail) Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rafael.paulo2000@gmail.com\",\r\n    \"code\": \"5306699\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/verifyAccountDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"verifyAccountDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - Send Recover Account Code Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"diogoa.cerqueira@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/recoverDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"recoverDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - Confirm Recover Account Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"924710\",\r\n    \"password\": \"123\",\r\n    \"confirm_password\": \"123\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/confirmRecoverDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"confirmRecoverDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - Cancel Account Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/cancelAccountDriver/:token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"cancelAccountDriver",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkcml2ZXJfaWQiOjEsImVtYWlsIjoicmFmYWVsLnBhdWxvMjAwMEBnbWFpbC5jb20iLCJleHAiOjE2ODgyMjQyNjN9.vLjdC9nJTGFRMPaiqVIOa2q_YwUsqcMApeuqVGI7fQU"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - Get User Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/getCognitoDriver/:token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"getCognitoDriver",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMSwiZW1haWwiOiJlcmlja21waW5hQGdtYWlsLmNvbSIsImV4cCI6MTY4ODE2OTg1Mn0.S2iz8bNt0nlJKIqKfe09DUlwVbjbtxVHczSrxZ2kc3o"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - Change Password Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pass\": \"1234567\",\r\n    \"new_pass\": \"naoseimais\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/changePasswordDriver/:token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"changePasswordDriver",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkcml2ZXJfaWQiOjEsImVtYWlsIjoicmFmYWVsLnBhdWxvMjAwMEBnbWFpbC5jb20iLCJleHAiOjE2ODgyMjQyNjN9.vLjdC9nJTGFRMPaiqVIOa2q_YwUsqcMApeuqVGI7fQU"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - UpdateDriver Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"erick@gmail.com\",\r\n    \"name\": \"nao sei\",\r\n    \"address\": \"nao sei\",\r\n    \"emergency_contact\": {\r\n        \"name\": \"nao sei\",\r\n        \"phone\": \"nao sei\",\r\n        \"relation\": \"nao sei\"\r\n    },\r\n    \"dob\": \"nao sei\",\r\n    \"phone\": \"nao sei\",\r\n    \"postalCode\": \"nao sei\",\r\n    \"country\": \"nao sei\",\r\n    \"nif\": 444444444,\r\n    \"RNATLicense\": \"nao sei\",\r\n    \"driverLicense\": \"nao sei\",\r\n    \"nationality\": \"nao sei\",\r\n    \"citizenCard\": \"nao sei\",\r\n    \"ANCATNumber\": \"nao sei\",\r\n    \"IBAN\": \"nao sei2\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/updateDriver/eyJraWQiOiJOaDZvVG4wNE1Da3BMSmw1SCtUTk1ON2Q2OGl0RG1mb3hZQ2tMZWtRTEFjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI3ZGRlOTVmYi04NzYyLTQ4MmMtODY1Ny1lYTkyZjA1ZDY5NzEiLCJkZXZpY2Vfa2V5IjoidXMtZWFzdC0yX2EwODIwNTg5LTJiYzUtNDIyNS05MjZhLTJjNWQ0ZWVjNzg0NSIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0yX0hCcVRmYkVNRSIsImNsaWVudF9pZCI6IjFhMHJodmNkaWViYmJwcWJnNWRvbWgyNHI1Iiwib3JpZ2luX2p0aSI6ImNjZDUyMTQxLTA5MmEtNDliOC04YmU3LWMzYzNkZTkwMTU2YiIsImV2ZW50X2lkIjoiNTczY2ViZTgtMTZiNi00YzY0LWE3OTctODQwZTg5MDQ4OGU2IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3MTQ3ODMyMywiZXhwIjoxNjcxNDgxOTIzLCJpYXQiOjE2NzE0NzgzMjMsImp0aSI6IjllY2ZhMjgyLTNjZGUtNDM3YS05ZWQ4LTdjZTkzMTBhMWVjZSIsInVzZXJuYW1lIjoiN2RkZTk1ZmItODc2Mi00ODJjLTg2NTctZWE5MmYwNWQ2OTcxIn0.y9nLcq_8kTi6H6j_b1_qa2x50sjcC-RR1hASvLc6W0iKPJsxFWwthU6S_Qfg2xEf8UWI_0ddBjkig2IeJAsYwiRzfdgmqNgCTtQUItdmRcPCBeMuvVzXYj-cQmxIQw1OJS7bNSixIwRha7WovTcnGc_0IbqwYONKLhfGwfMssH6fwChYPjKQ3j2uH_V",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"updateDriver",
+								"eyJraWQiOiJOaDZvVG4wNE1Da3BMSmw1SCtUTk1ON2Q2OGl0RG1mb3hZQ2tMZWtRTEFjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI3ZGRlOTVmYi04NzYyLTQ4MmMtODY1Ny1lYTkyZjA1ZDY5NzEiLCJkZXZpY2Vfa2V5IjoidXMtZWFzdC0yX2EwODIwNTg5LTJiYzUtNDIyNS05MjZhLTJjNWQ0ZWVjNzg0NSIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0yX0hCcVRmYkVNRSIsImNsaWVudF9pZCI6IjFhMHJodmNkaWViYmJwcWJnNWRvbWgyNHI1Iiwib3JpZ2luX2p0aSI6ImNjZDUyMTQxLTA5MmEtNDliOC04YmU3LWMzYzNkZTkwMTU2YiIsImV2ZW50X2lkIjoiNTczY2ViZTgtMTZiNi00YzY0LWE3OTctODQwZTg5MDQ4OGU2IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTY3MTQ3ODMyMywiZXhwIjoxNjcxNDgxOTIzLCJpYXQiOjE2NzE0NzgzMjMsImp0aSI6IjllY2ZhMjgyLTNjZGUtNDM3YS05ZWQ4LTdjZTkzMTBhMWVjZSIsInVzZXJuYW1lIjoiN2RkZTk1ZmItODc2Mi00ODJjLTg2NTctZWE5MmYwNWQ2OTcxIn0.y9nLcq_8kTi6H6j_b1_qa2x50sjcC-RR1hASvLc6W0iKPJsxFWwthU6S_Qfg2xEf8UWI_0ddBjkig2IeJAsYwiRzfdgmqNgCTtQUItdmRcPCBeMuvVzXYj-cQmxIQw1OJS7bNSixIwRha7WovTcnGc_0IbqwYONKLhfGwfMssH6fwChYPjKQ3j2uH_V"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - Update Image Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/erick/Pictures/Screenshots/Screenshot_5.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/updateImageDriver/erickmpina@gmail.com",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"updateImageDriver",
+								"erickmpina@gmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Routes-views",
+			"item": [
+				{
+					"name": "Routes - Create Route",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rafael.paulo2000@gmail.com\",\r\n    \"name\": \"User Name\",\r\n    \"address\": \"123 Main St\",\r\n    \"emergency_contact\": {\r\n        \"name\": \"Emergency Contact Name\",\r\n        \"phone\": \"912 345 679\",\r\n        \"relation\": \"Friend\"\r\n    },\r\n    \"image\": \"\",\r\n    \"dob\": \"1990-01-01\",\r\n    \"phone\": \"912345678\",\r\n    \"gender\": \"male\",\r\n    \"postalCode\": \"1234-567\",\r\n    \"country\": \"Portugal\",\r\n    \"nif\": 123456789,\r\n    \"RNATLicense\": \"123456\",\r\n    \"driverLicense\": \"123456\",\r\n    \"nationality\": \"Portuguese\",\r\n    \"citizenCard\": \"12345678\",\r\n    \"ANCATNumber\": \"12345\",\r\n    \"IBAN\": \"PT50 1234 4321 12345678901 72\",\r\n    \"password\": \"1234567\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/createDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"createDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Routes - Get Road Map",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rafael.paulo2000@gmail.com\",\r\n    \"name\": \"User Name\",\r\n    \"address\": \"123 Main St\",\r\n    \"emergency_contact\": {\r\n        \"name\": \"Emergency Contact Name\",\r\n        \"phone\": \"912 345 679\",\r\n        \"relation\": \"Friend\"\r\n    },\r\n    \"image\": \"\",\r\n    \"dob\": \"1990-01-01\",\r\n    \"phone\": \"912345678\",\r\n    \"gender\": \"male\",\r\n    \"postalCode\": \"1234-567\",\r\n    \"country\": \"Portugal\",\r\n    \"nif\": 123456789,\r\n    \"RNATLicense\": \"123456\",\r\n    \"driverLicense\": \"123456\",\r\n    \"nationality\": \"Portuguese\",\r\n    \"citizenCard\": \"12345678\",\r\n    \"ANCATNumber\": \"12345\",\r\n    \"IBAN\": \"PT50 1234 4321 12345678901 72\",\r\n    \"password\": \"1234567\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/createDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"createDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - Update Image Copy 2",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/erick/Pictures/Screenshots/Screenshot_5.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/updateImageDriver/erickmpina@gmail.com",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"updateImageDriver",
+								"erickmpina@gmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Points-instrest-views",
+			"item": [
+				{
+					"name": "Points - Create Point Interest",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rafael.paulo2000@gmail.com\",\r\n    \"name\": \"User Name\",\r\n    \"address\": \"123 Main St\",\r\n    \"emergency_contact\": {\r\n        \"name\": \"Emergency Contact Name\",\r\n        \"phone\": \"912 345 679\",\r\n        \"relation\": \"Friend\"\r\n    },\r\n    \"image\": \"\",\r\n    \"dob\": \"1990-01-01\",\r\n    \"phone\": \"912345678\",\r\n    \"gender\": \"male\",\r\n    \"postalCode\": \"1234-567\",\r\n    \"country\": \"Portugal\",\r\n    \"nif\": 123456789,\r\n    \"RNATLicense\": \"123456\",\r\n    \"driverLicense\": \"123456\",\r\n    \"nationality\": \"Portuguese\",\r\n    \"citizenCard\": \"12345678\",\r\n    \"ANCATNumber\": \"12345\",\r\n    \"IBAN\": \"PT50 1234 4321 12345678901 72\",\r\n    \"password\": \"1234567\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/createDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"createDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Routes - Get Road Map",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rafael.paulo2000@gmail.com\",\r\n    \"name\": \"User Name\",\r\n    \"address\": \"123 Main St\",\r\n    \"emergency_contact\": {\r\n        \"name\": \"Emergency Contact Name\",\r\n        \"phone\": \"912 345 679\",\r\n        \"relation\": \"Friend\"\r\n    },\r\n    \"image\": \"\",\r\n    \"dob\": \"1990-01-01\",\r\n    \"phone\": \"912345678\",\r\n    \"gender\": \"male\",\r\n    \"postalCode\": \"1234-567\",\r\n    \"country\": \"Portugal\",\r\n    \"nif\": 123456789,\r\n    \"RNATLicense\": \"123456\",\r\n    \"driverLicense\": \"123456\",\r\n    \"nationality\": \"Portuguese\",\r\n    \"citizenCard\": \"12345678\",\r\n    \"ANCATNumber\": \"12345\",\r\n    \"IBAN\": \"PT50 1234 4321 12345678901 72\",\r\n    \"password\": \"1234567\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/createDriver/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"createDriver",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company - Update Image Copy 2",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/erick/Pictures/Screenshots/Screenshot_5.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/updateImageDriver/erickmpina@gmail.com",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"updateImageDriver",
+								"erickmpina@gmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Translate - POST",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"text\": \"Hello, how are you?\",\r\n  \"sourceLang\": \"en\",\r\n  \"outputLang\": \"pt\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/translate/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"translate",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
